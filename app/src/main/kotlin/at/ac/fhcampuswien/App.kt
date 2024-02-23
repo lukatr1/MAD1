@@ -23,9 +23,18 @@ class App {
      *         contain unique, non-repeating digits.
      * @throws IllegalArgumentException if the length is more than 9 or less than 1.
      */
+
+
+
+
     val generateRandomNonRepeatingNumber: (Int) -> Int = { length ->
         //TODO implement the function
-        0   // return value is a placeholder
+        if (length < 1 || length > 10) {
+            throw IllegalArgumentException("Length must be between 1 and 10")
+        }
+
+        val digits = (0..9).toList().shuffled().take(length)
+        digits.fold(0) { acc, digit -> acc * 10 + digit }
     }
 
     /**
@@ -44,6 +53,11 @@ class App {
      *         The result is formatted as "Output: m:n", where "m" and "n" represent the above values, respectively.
      * @throws IllegalArgumentException if the inputs do not have the same number of digits.
      */
+
+
+
+
+
     val checkUserInputAgainstGeneratedNumber: (Int, Int) -> CompareResult = { input, generatedNumber ->
         //TODO implement the function
         CompareResult(0, 0)   // return value is a placeholder
@@ -51,6 +65,6 @@ class App {
 }
 
 fun main() {
-    println("Hello World!")
+
     // TODO: call the App.playNumberGame function with and without default arguments
 }
